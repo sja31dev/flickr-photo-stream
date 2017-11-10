@@ -40,7 +40,9 @@ class App extends Component {
       return results.json();
     }).then( data => {
       if (data.error) {
-        alert("Sorry there was an error retrieving photos from flickr")
+        alert("Sorry there was an error retrieving photos from flickr");
+        console.log("Error");
+        console.log(data.error);
       } else {
         console.log("data");
         console.log(data);
