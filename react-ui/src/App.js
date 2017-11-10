@@ -51,12 +51,18 @@ class App extends Component {
           {
             desc = "No description";
           }
+          // Build Author link
+          var authorLink = "https://www.flickr.com/photos/" + photo.author_id;
+          // Extract Authors actual name from author field
+          var author = photo.author.split('("')[1].split('")')[0];
           return (
             {
               id: photo.link,
               title: photo.title,
               src: photo.media.m,
-              author: photo.author,
+              link: photo.link,
+              author: author,
+              authorLink: authorLink;
               desc: desc,
               tags: photo.tags
             }
