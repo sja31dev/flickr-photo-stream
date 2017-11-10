@@ -33,7 +33,7 @@ app.get('/api/getstream', function(req, res) {
           console.log("BODY")
           console.log(body);
           console.log("BODYFIXED")
-          console.log(bodyfixed);
+          console.log(bodyFixed);
         }
         
         res.json(JSON.parse(bodyFixed));
