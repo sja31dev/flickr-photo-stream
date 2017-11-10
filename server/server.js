@@ -32,6 +32,7 @@ app.get('/api/getstream', function(req, res) {
       catch(err) {
         res.json({"error" : "Server error, please try again"});
         console.log(err);
+        console.log(body);
       }
     }
   });
