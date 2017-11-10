@@ -15,7 +15,7 @@ app.get('/api/test', function(req, res) {
 });
 
 app.get('/api/getstream', function(req, res) {
-  const baseUrl = "https://api.flickr.com/services/feeds/photos_public.gne?format=json";
+  const baseUrl = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=true";
   var url;
   if (req.query.tags) {
     url = baseUrl + "&tags=" + req.query.tags;
@@ -26,7 +26,7 @@ app.get('/api/getstream', function(req, res) {
     if (error) {
       res.json({"error" : error});
     } else {
-      res.send(body);
+      res.json(JSON.parse(body));
     }
   });
 

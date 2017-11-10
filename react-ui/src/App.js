@@ -24,7 +24,7 @@ class App extends Component {
       <div className="App">
         <Header />
 
-        <PhotoStream />
+        <PhotoStream stream={this.state.stream} />
 
         <Footer />
       </div>
@@ -32,28 +32,42 @@ class App extends Component {
   }
 
   getMorePhotos() {
-    axios.get("/api/getstream")
+    /*axios.get("/api/getstream")
       .then((response) => {
         console.log(response.data.items);
-      /*  this.setState({
-            items: response.data.items
-        })*/
+      //  this.setState({
+    //        items: response.data.items
+      //  })
       })
       .catch((err) => {
       console.log(err)
-      })
-    /*const url = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=true";
+    })*/
+    const url = "/api/getstream";
     fetch(url, {method: 'get'})
     .then(results => {
-      console.log(results);
       return results.json();
     }).then( data => {
       if (data.error) {
         alert("Sorry there was an error retrieving photos from flickr")
       } else {
+        console.log("data");
         console.log(data);
+        const stream = data.items.map((photo) => {
+          return (
+            {
+              id: photo.link,
+              title: photo.title,
+              src: photo.media.m,
+              author: photo.author,
+              desc: photo.description,
+              tags: photo.tags
+            }
+          );
+        });
+        console.log(stream);
+        this.setState({stream: stream});
       }
-    });*/
+    });
   }
 }
 

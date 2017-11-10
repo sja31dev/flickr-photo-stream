@@ -2,13 +2,16 @@ import React from 'react';
 import './photostreamitem.css';
 
 const PhotoStreamItem = ({photo}) => {
+  console.log("photo");
+  console.log(photo);
   return (
-    <div className="col-md-4">
-      <div className="card">
-        <img className="card-img-top" src={photo.src} alt={photo.alt} />
+    <div className="col-sm-3">
+      <div className="card h-100">
+        <img className="card-img-top" src={photo.src} alt={photo.title} />
         <div className="card-body">
-          <span className="card-title"><h4>Card title</h4></span>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <span className="card-title"><h4>{photo.title}</h4>{photo.author}</span>
+          <p className="card-text" dangerouslySetInnerHTML={{ __html: photo.desc }}></p>
+          <p className="card-text">{photo.tags}</p>
           <a href="#" className="btn btn-primary">Go somewhere</a>
         </div>
       </div>
