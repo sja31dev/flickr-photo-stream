@@ -28,7 +28,7 @@ app.get('/api/getstream', function(req, res) {
     } else {
       try {
         // Convert ' to &apos; before attempting to JSON parse
-        bodyFixed = body.replace(/\'/g,"’");
+        bodyFixed = body.replace(/\'/g,"\\\'");
         if (!!body.match(/\'/g)) {
           console.log("BODY")
           console.log(body);
