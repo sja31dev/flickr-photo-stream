@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   getMorePhotos() {
-    axios.get("https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json&nojsoncallback=true")
+    axios.get("/api/getstream")
       .then((response) => {
         console.log(response.data.items);
       /*  this.setState({
