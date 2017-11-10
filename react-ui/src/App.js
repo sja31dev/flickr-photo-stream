@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 
 import Header from './components/header';
@@ -32,16 +31,6 @@ class App extends Component {
   }
 
   getMorePhotos() {
-    /*axios.get("/api/getstream")
-      .then((response) => {
-        console.log(response.data.items);
-      //  this.setState({
-    //        items: response.data.items
-      //  })
-      })
-      .catch((err) => {
-      console.log(err)
-    })*/
     const url = "/api/getstream";
     fetch(url, {method: 'get'})
     .then(results => {
@@ -53,13 +42,22 @@ class App extends Component {
         console.log("data");
         console.log(data);
         const stream = data.items.map((photo) => {
+          const descParts = photo.description.match(/\<p\>.+?\<\/p\>/g);
+          var desc;
+          if (descParts && descParts.length >= 3) {
+            desc = descParts[2];
+          }
+          else
+          {
+            desc = "No description";
+          }
           return (
             {
               id: photo.link,
               title: photo.title,
               src: photo.media.m,
               author: photo.author,
-              desc: photo.description,
+              desc: desc,
               tags: photo.tags
             }
           );
