@@ -26,7 +26,7 @@ class App extends Component {
 
         <PhotoStream stream={this.state.stream} />
       
-        <MoreButton {() => this.getMorePhotos()} />
+        <MoreButton onClickMore={() => this.getMorePhotos()} />
 
         <Footer />
       </div>
