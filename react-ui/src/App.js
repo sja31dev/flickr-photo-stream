@@ -62,7 +62,7 @@ class App extends Component {
               src: photo.media.m,
               link: photo.link,
               author: author,
-              authorLink: authorLink;
+              authorLink: authorLink,
               desc: desc,
               tags: photo.tags
             }
