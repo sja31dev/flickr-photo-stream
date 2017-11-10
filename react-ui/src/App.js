@@ -73,7 +73,7 @@ class App extends Component {
         });
         console.log(stream);
         // Add the new photos to the list
-        this.setState({ arr: [...this.state.stream, ...stream] });
+        this.setState({ stream: [...this.state.stream, ...stream] });
       }
     });
   }
