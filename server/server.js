@@ -30,7 +30,7 @@ app.get('/api/getstream', function(req, res) {
         res.json(JSON.parse(body));
       }
       catch(err) {
-        res.json("error" : "Server error, please try again");
+        res.json({"error" : "Server error, please try again"});
       }
     }
   });
