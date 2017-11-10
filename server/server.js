@@ -26,7 +26,12 @@ app.get('/api/getstream', function(req, res) {
     if (error) {
       res.json({"error" : error});
     } else {
-      res.json(JSON.parse(body));
+      try {
+        res.json(JSON.parse(body));
+      }
+      catch(err) {
+        res.json("error" : "Server error, please try again");
+      }
     }
   });
 
