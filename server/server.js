@@ -27,7 +27,16 @@ app.get('/api/getstream', function(req, res) {
       res.json({"error" : error});
     } else {
       try {
-        res.json(JSON.parse(body));
+        // Convert ' to &apos; before attempting to JSON parse
+        bodyFixed = body.replace(/\'/g,"&apos;");
+        if (!!body.replace(/\'/g,"&apos;")) {
+          console.log("BODY")
+          console.log(body);
+          console.log("BODYFIXED")
+          console.log(bodyfixed);
+        }
+        
+        res.json(JSON.parse(bodyFixed));
       }
       catch(err) {
         res.json({"error" : "Server error, please try again"});
