@@ -4,13 +4,14 @@ import './App.css';
 import Header from './components/header';
 import Footer from './components/footer';
 import PhotoStream from './components/photostream';
+import MoreButton from './components/morebutton';
 
 class App extends Component {
   constructor (props) {
     super(props);
 
     this.state = {
-      stream: null
+      stream: []
     };
   }
 
@@ -24,6 +25,8 @@ class App extends Component {
         <Header />
 
         <PhotoStream stream={this.state.stream} />
+      
+        <MoreButton {() => this.getMorePhotos()} />
 
         <Footer />
       </div>
@@ -69,7 +72,8 @@ class App extends Component {
           );
         });
         console.log(stream);
-        this.setState({stream: stream});
+        // Add the new photos to the list
+        this.setState({ arr: [...this.state.stream, ...stream] });
       }
     });
   }
