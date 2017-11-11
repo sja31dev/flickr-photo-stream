@@ -2,8 +2,6 @@ import React from 'react';
 import './photostreamitem.css';
 
 const PhotoStreamItem = ({photo}) => {
-  console.log("photo");
-  console.log(photo);
   return (
     <div className="col-sm-3">
       <div className="card h-100">

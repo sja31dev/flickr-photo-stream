@@ -6,8 +6,6 @@ import PhotoStreamItem from './photostreamitem';
 const PhotoStream = ({stream}) => {
 
   if (stream && stream.length) {
-    console.log("psi stream");
-    console.log(stream);
     const streamItems = stream.map((photo) => {
       return (
         <PhotoStreamItem
