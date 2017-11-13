@@ -6,6 +6,7 @@ The web page is written using the [React.js](https://reactjs.org/) and [Bootstra
 
 The Flickr API has no Access-Control-Allow-Origin header present, so an API proxy/translation is also included in the solution. This is written in [Node.js](https://nodejs.org/) using [Express](https://expressjs.com/) framework.
 
+The Flickr API sometimes contains incorrectly escaped single quotes that cause the JSON parser to fail. These are corrected before parsing the response to JSON.
 
 ### Possible future improvements
 

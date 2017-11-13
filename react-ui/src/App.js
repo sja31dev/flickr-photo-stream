@@ -45,8 +45,8 @@ class App extends Component {
 
       } else {
         try {
-          // ' is causing issues with the json parser
-          data = data.replace(/'/g,"");
+          // \' is causing issues with the json parser
+          data = data.replace(/\\'/g,"'");
           data = JSON.parse(data);
 
           const filteredItems = data.items.filter((photo) => {
@@ -89,7 +89,7 @@ class App extends Component {
             photoIds: newPhotoIds});
         }
         catch(err) {
-          alert("Error in data returned from server. Please try again later.")
+          alert("Error in data returned from server. Please try again later.");
         }
       }
     });
