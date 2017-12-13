@@ -8,6 +8,12 @@ The Flickr API has no Access-Control-Allow-Origin header present, so an API prox
 
 The Flickr API sometimes contains incorrectly escaped single quotes that cause the JSON parser to fail. These are corrected before parsing the response to JSON.
 
+### Building and running locally
+
+To build the react page, from the project root directory, `cd react-ui` followed by `npm install` and `npm run build`.
+
+To run the Node.js project that serves the web page and runs the API proxy, from the project root directory run `npm install` followed by `npm start`.
+
 ### Possible future improvements
 
 Although there are many future improvements that could be made, the next ones I would make are:
